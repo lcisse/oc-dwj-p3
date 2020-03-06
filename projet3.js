@@ -1,6 +1,6 @@
 
 //la carte interactive
-/*
+
 var mymap = L.map('mapdiv').setView([47.2162, -1.5492], 15);
 
 L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoic290aWJhIiwiYSI6ImNrMzR3Y3VpMjE0NmQzYnA5a3cxaTExbm4ifQ._5V7MpOr4Ivvza511fHK2w', {
@@ -128,9 +128,9 @@ var divCompteur = document.getElementById("ConteneurCompteur");
     Start();
     on = false;
   });
-  /*$("#pause").click(function(){
+  $("#pause").click(function(){
     Stop();
-  });*/
+  });
   $("#retact").click(function(){
     Reset();
   });
@@ -176,12 +176,12 @@ var divCompteur = document.getElementById("ConteneurCompteur");
     return
   }
  
- /* function Stop(){
+  function Stop(){
     if(on===true){
       on = false;
       clearTimeout(timerID);
     }
-  }*/
+  }
  
   function Reset(){
     if(reset===false)
@@ -204,10 +204,11 @@ var divCompteur = document.getElementById("ConteneurCompteur");
     }
   
  
-};
+}
+});
 
-
-/*var appelCompteur = document.getElementById("appel")
+/*
+var appelCompteur = document.getElementById("appel")
     appelCompteur.addEventListener("click", function(){
         Start()
     })*/
