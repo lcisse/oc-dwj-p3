@@ -1,5 +1,5 @@
 //la map
-/*
+
 class Map{
 	constructor(mapdiv, latView, lngView, zoom, photoIcon, ajaxURL, data, type, typedata){
 		//this.container = $(container);
@@ -103,4 +103,3 @@ var map = new Map('mapdiv', 47.2162, -1.5492, 15,'markerVelo.png',
 map.tileLayerL();
 map.requeteAjax();
 map.parseData();
-*/
