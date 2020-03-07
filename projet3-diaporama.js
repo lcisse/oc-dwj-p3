@@ -1,15 +1,19 @@
 //le diaporama
 
 class Diaporama{
-    constructor(contenuDiaporama, imageArray, texteDiapo, slideInterval){
+    constructor(contenuDiaporama, imageArray, texteDiapo){
         this.contenuDiaporama = contenuDiaporama;
         this.imageArray = imageArray;
         this.texteDiapo = texteDiapo;
-        this.slideInterval = slideInterval;
-        this.i = this.imageArray.length;
+        //this.slideInterval = slideInterval;
+        this.i = this.imageArray.length; //+ this.slideInterval.length;
+        //var i = this.imageArray.length //+ slideInterval.length;
+        //console.log(this.imageArray);
         } 
         
+
         nextImage(){
+            console.log(this)
         if (this.i < this.imageArray.length) {
             ++ this.i;
         } else {
@@ -29,15 +33,13 @@ class Diaporama{
 
         }
 
-        /*stopImage() {
-            console.log('la vie');
-            clearInterval(this.slideInterval);
+        stopImage() {
+            //clearInterval(this.slideInterval);
         }
 
         playImage() {
-            console.log('la vie pourtant');
             //this.slideInterval = this.slideInterval;
-        }*/
+        }
 
          
     }
@@ -54,10 +56,17 @@ let monDiaporama = new Diaporama(
      "Ensuite si un velo est disonible, remplissez le formulaire.", 
      "Enfin signez pour valider votre réservation.",
      "Nous vous souhaitons une bonne route."],
-     slideIntervals    
+    
     );
 
-var slideIntervals = setInterval(monDiaporama.nextImage.bind(monDiaporama), 3000);
+/*monDiaporama.nextImage();
+monDiaporama.prewImage();
+monDiaporama.stopImage();
+monDiaporama.playImage();*/
+//monDiaporama.interval;
+//console.log(monDiaporama.i);
+console.log(monDiaporama)
+var slideIntervals = setInterval(monDiaporama.nextImage.bind(monDiaporama), 1000);
 
 $('#gauche').on('click', function(event){
     monDiaporama.prewImage()
@@ -68,14 +77,11 @@ $('#droite').on('click', function(event){
 });
 
 $('#stop').on('click', function(event){
-    //monDiaporama.stopImage()
-    clearInterval(slideIntervals);
-    
+    monDiaporama.stopImage()
 });
 
 $('#play').on('click', function(event){
-    //monDiaporama.playImage()
-    slideIntervals = setInterval(monDiaporama.nextImage.bind(monDiaporama), 3000);
+    monDiaporama.playImage()
 });
 
 //Déplacer le diaporama avec les flèche du clavier

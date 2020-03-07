@@ -1,6 +1,6 @@
 
 //la carte interactive
-/*
+
 var mymap = L.map('mapdiv').setView([47.2162, -1.5492], 15);
 
 L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoic290aWJhIiwiYSI6ImNrMzR3Y3VpMjE0NmQzYnA5a3cxaTExbm4ifQ._5V7MpOr4Ivvza511fHK2w', {
@@ -21,8 +21,8 @@ var greenIcon = L.icon({
 
 var marker = L.marker([47.2162, -1.5492], {icon: greenIcon});//creation marqueur
 
-marker.addTo(mymap); //Exemple marker
-marker.bindPopup("<b>Velo restant </b>" + marker.veloRestant + "<br>"); // Exemple PopUp
+marker.addTo(mymap);
+marker.bindPopup("<b>Velo restant </b>" + marker.veloRestant + "<br>");
 
 
 // La requete AJAX
@@ -60,22 +60,22 @@ for (let i = 0; i < data.length; i++) {
         infoStation.innerHTML = nomStation + "<br>" + addresseStation + "<br>" + nombrePlaceStation + "<br>" + veloDisponibleStation;
         veloReserver.innerHTML = data[i].name; 
 
-        $("input").prop('disabled', false); //Champ nom saisissable aprés avoir selectionner une station 
+        $("input").prop('disabled', false); //Saisir son nom aprés avoir selectionne une station 
 
-        //Validation formulaire
+        //les conditions a respecter quand une station est selectionnnee
         if ($('#nom-client').val().length === 0 || $('#prenom-client').val().length === 0) {
         $('#reserver').prop('disabled', true);
         }else{
         $('#reserver').prop('disabled', false);
       }
 
-      sessionStorage.setItem('station', infoStation.innerHTML) 
+      sessionStorage.setItem('station', infoStation.innerHTML)
 });
    
 
 }
 } 
-*/
+
 //la reservation et les boutons du canvas
 var reservationBouton = document.getElementById("reserver");
 var affichageDuCanvas = document.getElementById("reservation");
@@ -92,7 +92,7 @@ var divSurLaCarte = document.getElementById("fondMap");
 
     effacerLaSignature.addEventListener("click", function(){ 
         
-       $('#submit').prop('disabled', true); //rentre le bouton valider non cliquable en effacant la signature 
+       $('#submit').prop('disabled', true); //rentre le bouton non cliquable en effacant la signature 
     })
 
     annulationReservation.addEventListener("click", function(){
@@ -128,7 +128,9 @@ var divCompteur = document.getElementById("ConteneurCompteur");
     Start();
     on = false;
   });
-
+  /*$("#pause").click(function(){
+    Stop();
+  });*/
   $("#retact").click(function(){
     Reset();
   });
@@ -174,6 +176,13 @@ var divCompteur = document.getElementById("ConteneurCompteur");
     return
   }
  
+ /* function Stop(){
+    if(on===true){
+      on = false;
+      clearTimeout(timerID);
+    }
+  }*/
+ 
   function Reset(){
     if(reset===false)
     {
@@ -193,10 +202,15 @@ var divCompteur = document.getElementById("ConteneurCompteur");
         $('#reserver').prop('disabled', false);
       }
     }
-  
+  }
  
-}
 });
+
+
+/*var appelCompteur = document.getElementById("appel")
+    appelCompteur.addEventListener("click", function(){
+        Start()
+    })*/
 
 //Fin du temps de la reservation
 
@@ -224,6 +238,17 @@ form.addEventListener('submit', function(e) {
 
 
 
+
+//fin du local storage
+
+/*jQuery(document).ready(function($){
+    //alert('Le chargement du DOM est terminé');
+    if ($('#nom-client').val().length === 0 || $('#prenom-client').val().length === 0) {
+        $('#reserver').prop('disabled', true);
+      }else{
+        $('#reserver').prop('disabled', false);
+      }
+});*/
 
 
 
