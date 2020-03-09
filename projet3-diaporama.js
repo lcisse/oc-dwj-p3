@@ -13,7 +13,6 @@ class Diaporama{
         
 
         nextImage(){
-            console.log(this)
         if (this.i < this.imageArray.length) {
             ++ this.i;
         } else {

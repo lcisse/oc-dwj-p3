@@ -126,7 +126,7 @@ var divCompteur = document.getElementById("ConteneurCompteur");
 
     divCompteur.style.display = "none";
 
-    validationBouton.addEventListener("click", function(){
+    $(validationBouton).on("click", function(){
         divCompteur.style.display = "block";
         affichageDuCanvas.style.display = "none";
         $('#reserver').prop('disabled', true);
