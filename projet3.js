@@ -97,9 +97,7 @@ $.ajax({
 
  }
 
- class chrono{
-  
- }
+
 
  formulaire = new Formulaire();
 
@@ -144,72 +142,43 @@ $(validationBouton).on("click", function(){
     $('input').prop('disabled', true);
 })
 
-  //le temps de la reservation
-$(document).ready(function(){
-var secondes = 60;
-var minutes = 19;
-var on = false;
-var reset = false;
- 
-  $("#submit").click(function(){
-    Start();
-    on = false;
-  });
 
 
-  $("#retact").click(function(){
-    Reset();
-  });
- 
-  function chrono(){
-    secondes -= 1;
-   
-    if(secondes<1){
-      minutes -= 1;
-      secondes = 60;
-    }
-   
-    if(minutes<10 && secondes<10){
-      $("#timer").html("0"+minutes+" : 0"+secondes);
-    }
-    else if(minutes<10 && secondes>=10){
-        $("#timer").html("0"+minutes+" : "+secondes);
-    }
-    else if(minutes>=10 && secondes<10){
-        $("#timer").html(+minutes+" : 0"+secondes);
-    }
-    else if(minutes>=10 && secondes>10){
-        $("#timer").html(+minutes+" : "+secondes);
-    }
 
-    if(minutes===0 && secondes===1){
-        divCompteur.style.display = "none"; //Masquer le compteur en se retractant
-        clearInterval(timerID);
-        divSurLaCarte.style.display = "none";
-        ctx.clearRect(0, 0, document.getElementById('canvas-sign').width, document.getElementById('canvas-sign').height);//reunitialisation de la signature
-        alert("C'est la fin de votre réservation.");
-    }
+ class Chrono{
+  constructor(){
+
+    this.secondes = 60;
+    this.minutes = 19;
+    this.on = false;
+    this.reset = false;
+    this.timerID = null;
   }
- 
-  function Start(){
-    if(on===false){
-      timerID = setInterval(chrono, 1000);
-      secondes = 60;
-      minutes = 19;
-      on = true;
-      reset = false;
+
+
+  Start(){
+    console.log('star timer')
+    console.log(this)
+
+    if(this.on === false){
+      this.timerID = setInterval(this.chrono.bind(this), 1000);
+      this.secondes = 60;
+      this.minutes = 19;
+      this.on = true;
+      this.reset = false;
     };
-    return
+    //return
   }
 
-  function Reset(){
-    if(reset===false)
+
+  Reset(){
+    if(this.reset === false)
     {
-      clearInterval(timerID);
+      clearInterval(this.timerID);
       //secondes = 0;
       //minutes = 0;
       $("#timer").html("00 : 00");
-      reset = true;
+      this.reset = true;
       divCompteur.style.display = "none"; //Masquer le compteur en se retractant
       ctx.clearRect(0, 0, document.getElementById('canvas-sign').width, document.getElementById('canvas-sign').height);//reunitialisation de la signature
       divSurLaCarte.style.display = "none";
@@ -222,7 +191,67 @@ var reset = false;
       }
     }
   }
+
+  chrono(){
+
+    console.log(this.secondes)
+    this.secondes -= 1;
+   
+    if(this.secondes<1){
+      this.minutes -= 1;
+      this.secondes = 60;
+    }
+   
+    if(this.minutes<10 && this.secondes<10){
+      $("#timer").html("0"+ this.minutes+" : 0"+ this.secondes);
+    }
+    else if(this.minutes<10 && this.secondes>=10){
+        $("#timer").html("0"+this.minutes+" : "+this.secondes);
+    }
+    else if(this.minutes>=10 && this.secondes<10){
+        $("#timer").html(+this.minutes+" : 0"+this.secondes);
+    }
+    else if(this.minutes>=10 && this.secondes>10){
+        $("#timer").html(+this.minutes+" : "+this.secondes);
+    }
+
+    if(this.minutes===0 && this.secondes===1){
+        divCompteur.style.display = "none"; //Masquer le compteur en se retractant
+        clearInterval(timerID);
+        divSurLaCarte.style.display = "none";
+        ctx.clearRect(0, 0, document.getElementById('canvas-sign').width, document.getElementById('canvas-sign').height);//reunitialisation de la signature
+        alert("C'est la fin de votre réservation.");
+    }
+
+    console.log(this.secondes)
+  }
  
+
+
+ }
+
+
+
+
+
+  //le temps de la reservation
+$(document).ready(function(){
+
+  var chrono = new Chrono()
+
+
+ 
+  $("#submit").click(function(){
+    chrono.Start();
+   // on = false;
+  });
+
+
+  $("#retact").click(function(){
+    chrono.Reset();
+  });
+
+
 });
 
 
@@ -238,15 +267,15 @@ form.addEventListener('submit', function(e) {
   e.preventDefault();
 });
 
-            var activateButton = function(){
-                let valeurInputNom = $('#nom-client').val();
-                let valeurInputPrenom = $('#prenom-client').val();
-                if( valeurInputNom.length >= 1 && valeurInputPrenom.length >= 1){
-                    console.log("code")
-                    $('#reserver').prop('disabled', false);
-                }else{
-                    $('#reserver').prop('disabled', true);
-                    $('#reservation').hide()
-                }
-            }
+var activateButton = function(){
+    let valeurInputNom = $('#nom-client').val();
+    let valeurInputPrenom = $('#prenom-client').val();
+    if( valeurInputNom.length >= 1 && valeurInputPrenom.length >= 1){
+        console.log("code")
+        $('#reserver').prop('disabled', false);
+    }else{
+        $('#reserver').prop('disabled', true);
+        $('#reservation').hide()
+    }
+}
 
