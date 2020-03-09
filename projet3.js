@@ -89,6 +89,19 @@ $.ajax({
     } 
 }); 
 
+ class Formulaire{
+
+ }
+
+ class Signature{
+
+ }
+
+ class chrono{
+  
+ }
+
+ formulaire = new Formulaire();
 
 
 //la reservation et les boutons du canvas
@@ -98,18 +111,18 @@ var annulationReservation = document.getElementById("annuler");
 var inputs = document.querySelectorAll("input");
 var effacerLaSignature = document.getElementById("erase");
 var divSurLaCarte = document.getElementById("fondMap");
-    affichageDuCanvas.style.display = "none";
-    reservationBouton.addEventListener("click", function(){
+affichageDuCanvas.style.display = "none";
+reservationBouton.addEventListener("click", function(){
         affichageDuCanvas.style.display = "block"; 
         divSurLaCarte.style.display = "block";
-    })
+})
 
-    effacerLaSignature.addEventListener("click", function(){ 
+effacerLaSignature.addEventListener("click", function(){ 
         
        $('#submit').prop('disabled', true); //rentre le bouton non cliquable en effacant la signature 
-    })
+})
 
-    annulationReservation.addEventListener("click", function(){
+annulationReservation.addEventListener("click", function(){
         affichageDuCanvas.style.display = "none";
         ctx.clearRect(0, 0, document.getElementById('canvas-sign').width, document.getElementById('canvas-sign').height);//reunitialisation de la signature
         $('#submit').prop('disabled', true); //rendre le bouton valider non cliquable
@@ -122,23 +135,21 @@ var validationBouton = document.getElementById("submit");
 var stationReservation = document.getElementById("stationReserver");
 var divCompteur = document.getElementById("ConteneurCompteur");
 
+divCompteur.style.display = "none";
 
+$(validationBouton).on("click", function(){
+    divCompteur.style.display = "block";
+    affichageDuCanvas.style.display = "none";
+    $('#reserver').prop('disabled', true);
+    $('input').prop('disabled', true);
+})
 
-    divCompteur.style.display = "none";
-
-    $(validationBouton).on("click", function(){
-        divCompteur.style.display = "block";
-        affichageDuCanvas.style.display = "none";
-        $('#reserver').prop('disabled', true);
-        $('input').prop('disabled', true);
-    })
-
-    //le temps de la reservation
-        $(document).ready(function(){
-  var secondes = 60;
-  var minutes = 19;
-  var on = false;
-  var reset = false;
+  //le temps de la reservation
+$(document).ready(function(){
+var secondes = 60;
+var minutes = 19;
+var on = false;
+var reset = false;
  
   $("#submit").click(function(){
     Start();
