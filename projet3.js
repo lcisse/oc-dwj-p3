@@ -156,11 +156,12 @@ $(validationBouton).on("click", function(){
         this.decrement()
         console.log(this.dureeInit)
     }.bind(this), 1000);
-
+console.log('internal handle',handle)
     return handle
  }
 
  stop(handle){
+  console.log(handle)
   clearInterval(handle)
  }
 }
@@ -168,13 +169,19 @@ $(validationBouton).on("click", function(){
   //le temps de la reservation
 $(document).ready(function(){
 
-  var chrono = new Chrono()
   var chrono2 = new Chrono2()
-  var handle = chrono2.start();
+  var handle = null;
 
-  $("#chrono").click(function(){
+  $("#chronoStart").click(function(){
+    handle = chrono2.start()
+  });
+
+  $("#chronoStop").click(function(){
     chrono2.stop(handle)
   })
+
+
+ 
  
   var h = $("#submit").click(function(){
    let timerId ;
