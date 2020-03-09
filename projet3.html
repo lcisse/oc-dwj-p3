@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
     integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
     crossorigin=""/>
-     <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
     <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
     integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
     crossorigin=""></script>
@@ -22,7 +22,7 @@
         <div id="diapo">
         	<div id="conteneur">
                 <img src="image28.jpg" alt="velo">
-    	    </div>
+            </div>
             <button id="gauche">&lt</button>
             <button id="droite">&gt</button>
             <div id="playpause">
@@ -33,58 +33,59 @@
 
         <div id="mapPanneau">
             <div id="conteneurMap">  
-               <div id="mapdiv"></div>
-               <div id="fondMap"></div>
-            </div>
-            <div id='markers'></div>
-            <div id="Overlay"></div>
-            <div id="conteneurPaneaux">
-                <div id="stationSelectionnee">
+             <div id="mapdiv"></div>
+             <div id="fondMap"></div>
+         </div>
+         <div id='markers'></div>
+         <div id="Overlay"></div>
+         <div id="conteneurPaneaux">
+            <div id="stationSelectionnee">
                 Selectionnez une station à partir des marqueurs. 
-                </div>
-
-
-                <div id="conteneurForm">
-                    <form method="post" action="" >
-                        <input type="text" id="nom-client" name="noms" maxlength="20" placeholder="Nom" required value="" disabled = 'disabled'><br>
-                        <input type="text" id="prenom-client" name="prenom" maxlength="20" placeholder="Prénom" required value="" disabled = 'disabled'><br>
-                        <button id="reserver"  disabled = 'disabled'>Réserver</button>
-                    </form>
-                </div>
-
-
-                
             </div>
-        </div>
-        <!--Le canvas-->
-        <div id="reservation">
-            <h3>Signer pour valider votre reservation</h3>
-            <canvas id="canvas-sign" width="300" height="150"></canvas>
-            <div id="conteneurButtonsCanvas">
-                <button id="erase" class="canvasBoutons">Effacer</button>
-                <button id="submit" class="canvasBoutons" disabled = 'disabled'>Valider</button>
-                <button id="annuler" class="canvasBoutons">Annuler</button>
 
+
+            <div id="conteneurForm">
+                <form method="post" action="" >
+                    <input type="text" id="nom-client" name="noms" maxlength="20" placeholder="Nom" required value="" disabled = 'disabled'><br>
+                    <input type="text" id="prenom-client" name="prenom" maxlength="20" placeholder="Prénom" required value="" disabled = 'disabled'><br>
+                    <button id="reserver"  disabled = 'disabled'>Réserver</button><br><br>
+                    <button id="chrono" >STOP</button>
+                </form>
             </div>
+
+
+
         </div>
-        <div id="ConteneurCompteur">
-            <p>Vélo réservé a la station :</p>
-            <p id="velo-reserver"></p>
-            <div id="stationReserver"></div>
-            <p>Temps restant : </p>
-            <div id="timer">00 : 00</div>
-            <button id="retact">Vous rétractez</button>
-        </div>
-        <footer>
-            <div id="piedPage">CISSE Lamine, projet 3 DWJ Openclasscoom.</div>
-        </footer>
     </div>
+    <!--Le canvas-->
+    <div id="reservation">
+        <h3>Signer pour valider votre reservation</h3>
+        <canvas id="canvas-sign" width="300" height="150"></canvas>
+        <div id="conteneurButtonsCanvas">
+            <button id="erase" class="canvasBoutons">Effacer</button>
+            <button id="submit" class="canvasBoutons" disabled = 'disabled'>Valider</button>
+            <button id="annuler" class="canvasBoutons">Annuler</button>
 
-    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
-    <script src="projet3.js"></script>
-    <script src="projet3-canvas.js"></script>*
-    <script src="projet3-diaporama.js"></script>
-    <script src="projet3-storage.js"></script>
+        </div>
+    </div>
+    <div id="ConteneurCompteur">
+        <p>Vélo réservé a la station :</p>
+        <p id="velo-reserver"></p>
+        <div id="stationReserver"></div>
+        <p>Temps restant : </p>
+        <div id="timer">00 : 00</div>
+        <button id="retact">Vous rétractez</button>
+    </div>
+    <footer>
+        <div id="piedPage">CISSE Lamine, projet 3 DWJ Openclasscoom.</div>
+    </footer>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+<script src="projet3.js"></script>
+<script src="projet3-canvas.js"></script>*
+<script src="projet3-diaporama.js"></script>
+<script src="projet3-storage.js"></script>
 </body>
 
 </html>
