@@ -145,6 +145,10 @@ $(validationBouton).on("click", function(){
  class Chrono2{
   constructor(){
     this.dureeInit = 60 * 20;
+    //transformer en affichage digital sur la page web
+    //pour obtenir des minutes il faut utiliser la division euclidienne module   %
+    // le reste de la division va te donner les seconde
+    //arrange toi pour afficher la durée exprimées en seconde en affichage minute et secondes.
   }
 
   decrement(){
@@ -154,19 +158,18 @@ $(validationBouton).on("click", function(){
   start(){
     var handle = setInterval(function(){
         this.decrement()
-        console.log(this.dureeInit)
     }.bind(this), 1000);
-console.log('internal handle',handle)
+
+    console.log(this.dureeInit)
     return handle
  }
 
  stop(handle){
-  console.log(handle)
   clearInterval(handle)
  }
 }
 
-  //le temps de la reservation
+  //Début de l'exécution du script global
 $(document).ready(function(){
 
   var chrono2 = new Chrono2()
@@ -179,15 +182,6 @@ $(document).ready(function(){
   $("#chronoStop").click(function(){
     chrono2.stop(handle)
   })
-
-
- 
- 
-  var h = $("#submit").click(function(){
-   let timerId ;
-   chrono.Start(timerId);
-   return timerId
-  });
 
 
   $("#retact").click(function(){
