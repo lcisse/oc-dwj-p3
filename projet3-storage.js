@@ -44,16 +44,8 @@ let storage = new Storage(
         //this.value
     )
 
-//var init = function(){
-            storage.init();
-            //}
 
-//storage.localStorage();
-
-
-
-
-
+storage.init();
     ///////////////////////////////////////
 var init = function(){
                 $('#nom-client').val(localStorage.getItem('nom'))
