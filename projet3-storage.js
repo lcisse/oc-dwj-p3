@@ -1,64 +1,31 @@
 //le local storage
 class Storage {
-    constructor(nomClient, prenomClient, nom, prenom,input, activerBoutonReservation){
-        this.nomClient = nomClient;
-        this.prenomClient = prenomClient;
-        this.nom = nom;
-        this.prenom = prenom;
-        this.input = input;
-        this.activerBoutonReservation = activerBoutonReservation;
-        //this.value = value;
+    constructor(){
+        this.nom = 'nom';
+        this.prenom = 'prenom';
+        this.nomClient = $('#nom-client');
+        this.prenomClient = $('#prenom-client');
     }
 
-    init = function(){
-                this.nomClient.val(localStorage.getItem(this.nom))
-                this.prenomClient.val(localStorage.getItem(this.prenom))
-    }
-    
-    stocker(){
-
-                this.nomClient.on(this.input,function(){
-                    this.activerBoutonReservation
-                    localStorage.setItem(this.nom,this.value)
-                    console.log("salut la famille");
-                })
-
-
-                this.prenomClient.on(this.input,function(){
-                    this.activerBoutonReservation
-                    localStorage.setItem(this.prenom,this.value)
-                    console.log("salut la famille");
-                })
-
-    }
+    getLocal(){
+        this.nomClient.val(localStorage.getItem(this.nom))
+        this.prenomClient.val(localStorage.getItem(this.prenom))
+    }    
 }
+//Fin de la class local storage
 
+let storage = new Storage();
 
-let storage = new Storage(
-        $('#nom-client'),
-        $('#prenom-client'),
-        'nom',
-        'prenom',
-        'input',
-        activateButton(),
-        //this.value
-    )
+$(document).ready(function(){
+    storage.getLocal(); 
+})
 
+$('#nom-client').on('input',function(){
+    formulaire.activationBoutonForm();
+    localStorage.setItem('nom',this.value);
+})
 
-storage.init();
-    ///////////////////////////////////////
-var init = function(){
-                $('#nom-client').val(localStorage.getItem('nom'))
-                $('#prenom-client').val(localStorage.getItem('prenom'))
-            }
-
-
-            $('#nom-client').on('input',function(){
-                    activateButton()
-                    localStorage.setItem('nom',this.value)
-            })
-
-           $('#prenom-client').on('input',function(){
-                    activateButton()
-                    localStorage.setItem('prenom',this.value)
-            })
+$('#prenom-client').on('input',function(){
+   formulaire.activationBoutonForm();
+   localStorage.setItem('prenom',this.value);
+})
