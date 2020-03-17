@@ -142,6 +142,10 @@ $(validationBouton).on("click", function(){
     $('input').prop('disabled', true);
 })
 
+
+
+
+
  class Chrono2{
   constructor(){
     this.dureeInit = 60 * 20;
@@ -158,16 +162,30 @@ $(validationBouton).on("click", function(){
   start(){
     var handle = setInterval(function(){
         this.decrement()
+       // console.log(this.dureeInit)
+        console.log(this.getMinute() + ':' + this.getSeconde())
+$("#chronoStop").html('<p>'+ min + ':' + sec'</p>')
+
+
     }.bind(this), 1000);
 
-    console.log(this.dureeInit)
     return handle
- }
+  }
+
+  getMinute(){
+    return Math.floor(this.dureeInit / 60) ;
+  }
+
+  getSeconde(){
+    return (this.dureeInit % 60) ;
+  }
 
  stop(handle){
   clearInterval(handle)
  }
 }
+
+
 
   //Début de l'exécution du script global
 $(document).ready(function(){
@@ -178,6 +196,12 @@ $(document).ready(function(){
   $("#chronoStart").click(function(){
     handle = chrono2.start()
   });
+
+var min = chrono2.getMinute()
+var sec = chrono2.getSeconde()
+$("#chronoStop").html('<p>'+ min + ':' + sec'</p>')
+
+
 
   $("#chronoStop").click(function(){
     chrono2.stop(handle)
