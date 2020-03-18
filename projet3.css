@@ -259,3 +259,25 @@ form button{
    margin-top: 10px;
 
 }
+
+#finReservation{
+   display: none;
+   width: 320px;
+   height: 40px;
+   lborder: 2px solid #feca57;
+   margin: 0 auto;
+   margin-top: 30px;
+   margin-bottom: 50px;
+   padding: 20px; 
+   background-color: rgb(232,223,214);
+   text-align: center;
+   border: 2px solid rgb(207,218,162);
+   color: red;
+   font-size: 1.5em;
+   animation: colorblink 2s infinite;
+}
+
+@keyframes colorblink { 
+0% { }
+50% { color:green; } 
+}

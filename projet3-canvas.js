@@ -1,6 +1,5 @@
     var CanvasForSign = {
 
-
     // Variables to keep track of the mouse position and left-button status
     mouseX: 0,
     mouseY: 0,
@@ -21,7 +20,6 @@
         ctx = document.getElementById('canvas-sign').getContext('2d');
 
         //document.getElementById('submit').style.display = "none";
-
 
         // React to mouse events on the canvas, and mouseup on the entire document
         document.getElementById('canvas-sign').addEventListener('mousedown', CanvasForSign.sketchpad_mouseDown, false);

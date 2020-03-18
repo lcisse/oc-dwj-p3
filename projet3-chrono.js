@@ -1,5 +1,5 @@
     //class chrono
-
+/*
     class Chrono1{
           constructor(){
                 this.secondes = 60;
@@ -91,5 +91,5 @@ $(document).ready(function(){
       });
 
 });
-
+*/
 //fin chrono
