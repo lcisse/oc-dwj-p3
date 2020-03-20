@@ -34,7 +34,7 @@ class Diaporama{
 
         playImage() {
             //this.slideInterval = this.slideInterval;
-            this.slideInterval = setInterval(this.nextImage.bind(this) , 1000);
+            this.slideInterval = setInterval(this.nextImage.bind(this) , 5000);
         }
 
         flecheClavier(e){
