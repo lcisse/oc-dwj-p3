@@ -91,6 +91,8 @@ $.ajax({
               infoStation.innerHTML = "Aucun velo n'est disponible dans cette station";
               infoStation.style.color = "#F75518 ";
               infoStation.style.fontSize = "1.5em";
+              $("input").prop('disabled', true);
+              $('#reserver').prop('disabled', true);
             }else {
               infoStation.style.color = "black ";
             }
