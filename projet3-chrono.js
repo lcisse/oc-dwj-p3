@@ -69,7 +69,7 @@
   $("#timer").html("00 : 00");
   $("#ConteneurCompteur").css("display", "none"); //Masquer le compteur en se retractant
   $("#fondMap").css("display", "none");
-  ctx.clearRect(0, 0, document.getElementById('canvas-sign').width, document.getElementById('canvas-sign').height);
+  this.ctx.clearRect(0, 0, document.getElementById('canvas-sign').width, document.getElementById('canvas-sign').height);
   $('#submit').prop('disabled', true);
   $('input').prop('disabled', false);
   $('#reserver').prop('disabled', false);
