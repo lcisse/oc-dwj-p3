@@ -11,6 +11,7 @@ class Canvas {
         // Get the specific canvas element from the HTML document
         this.canvasSign = document.getElementById('canvas-sign');
         this.ctx = this.canvasSign.getContext('2d'); 
+        console.log('constructor',this.ctx)
     }
     
     // Set-up the canvas and add our event handlers after the page has loaded
@@ -21,13 +22,18 @@ class Canvas {
         this.canvasSign.addEventListener('mousemove', this.sketchpad_mouseMove.bind(this), false);
         this.canvasSign.addEventListener('mouseup', this.sketchpad_mouseUp.bind(this), false);
 
+        console.log('init',this.ctx)
+        //var that = this  << méthode 1
+        // var clean = function(){}  .....   $('#erase').on('click', clean.bind(this))  << méthode 2
+
+
         // Reset the canvas on click "Effacer"
-        document.getElementById('erase').addEventListener('click', function () {
-            alert("ici !");
-            this.ctx.clearRect(0, 0, this.canvasSign.width, this.canvasSign.height).bind(this);
-            //document.getElementById('submit').style.display = "none";
+        // Méthode 3 on bind une fonction anonyme
+        $('#erase').on('click', function () {
+          
+            this.ctx.clearRect(0, 0, this.canvasSign.width, this.canvasSign.height);
             
-        });
+        }.bind(this));
 
     }
 
