@@ -1,30 +1,11 @@
-body{
-   lbackground-image: url("image25.jpg");
-   background-color: rgb(232,223,214);
-   nopacity: 0.8;
-}
-
 #conteneurPage{
-    width: 95%;
+    position: relative;
     margin: 0 auto;
-    margin-top: 50px;
     border: 2px solid white;
     border-radius: 5px;
-    background-color: white;
-    jbackground: linear-gradient(to top, white, 5%, white);
-}
-#logo {
-   display: flex;
-   height: 300px;
-   justify-content: center;
-   lmargin-top: 20px;
-
+    background-color: white;    
 }
 
-#igmLogo{
-   width: 400px;
-   height: 300px;
- }
 #bienvenue{
    display: flex;
    font-size: 2.5em;
@@ -49,8 +30,7 @@ body{
 }
 #conteneur img{
    width: 100%;
-   height: 100%;
-   lborder-radius: 50px;   
+   height: 100%;   
 }
 
 #gauche{
@@ -139,15 +119,16 @@ opacity: 0.4;
    background-color: rgb(232,223,214);
    top: 30px;
    right: 150px;
-   nmargin-right: 150px;
 }
 
 #stationSelectionnee{  
    height: 150px;
    background-color: rgb(216,206,197);
    padding: 20px 20px 0px 20px;
-   font-size: 1.7em;
    text-align: center;
+}
+#stationSelectionnee, h2{
+   font-size: 1.3em;
 }
 
 #conteneurForm{
@@ -189,7 +170,6 @@ form button{
    width: 200px;
    height: 40px;
    border-radius: 40px;
-   lmargin: 0px 0% 20px 25%;
    border: none;
    margin: 0 auto;
 
@@ -204,8 +184,7 @@ form button{
 }
 
 #canvas-sign{
-   border: 2px solid rgb(207,218,162);
-   background-color: rgb(232,223,214); 
+   border: 2px solid rgb(207,218,162); 
 }
 
 #conteneurButtonsCanvas{
@@ -227,12 +206,10 @@ form button{
    display: block;
    width: 300px;
    height: 250px;
-   lborder: 2px solid #feca57;
    margin: 0 auto;
    margin-top: 30px;
    margin-bottom: 50px;
    padding: 20px; 
-   background-color: rgb(232,223,214);
    text-align: center;
    border: 2px solid rgb(207,218,162);
 }
@@ -264,7 +241,6 @@ form button{
    display: none;
    width: 320px;
    height: 40px;
-   lborder: 2px solid #feca57;
    margin: 0 auto;
    margin-top: 30px;
    margin-bottom: 50px;
@@ -280,4 +256,25 @@ form button{
 @keyframes colorblink { 
 0% { }
 50% { color:green; } 
+}
+
+a{
+  text-decoration: none;
+  color: black;
+}
+
+#barSurDiapo{
+  height: 65px;
+  background-color: rgb(26, 199, 107);
+  z-index: 5;
+}
+
+#soti{
+  color: rgb(26, 199, 107); 
+}
+
+#piedPage{
+  height: 30px;
+  background-color: rgb(26, 199, 107);
+  margin-bottom: -15px;  
 }

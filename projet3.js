@@ -10,12 +10,12 @@ class MapGenerator{
   }
 
   addLayerTo(map){
-    L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoic290aWJhIiwiYSI6ImNrMzR3Y3VpMjE0NmQzYnA5a3cxaTExbm4ifQ._5V7MpOr4Ivvza511fHK2w', {
-    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-    maxZoom: 18,
-    id: 'mapbox.streets',
-    accessToken: 'your.mapbox.access.token'
-}).addTo(map);
+      L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoic290aWJhIiwiYSI6ImNrMzR3Y3VpMjE0NmQzYnA5a3cxaTExbm4ifQ._5V7MpOr4Ivvza511fHK2w', {
+      attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+      maxZoom: 18,
+      id: 'mapbox.streets',
+      accessToken: 'your.mapbox.access.token'
+    }).addTo(map);
   }
 }
 
@@ -24,10 +24,9 @@ var mapgenerator = new MapGenerator();
 var mymap = mapgenerator.factory('mapdiv',[47.2162, -1.5492],15);
 mapgenerator.addLayerTo(mymap);
 
-//modification du marqueur
+//creation d'icon
 var greenIcon = L.icon({
     iconUrl: 'markerVelo.png',
-
     iconSize:     [48, 55], // size of the icon
     iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
     popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
@@ -35,27 +34,17 @@ var greenIcon = L.icon({
 
 var redIcon = L.icon({
     iconUrl: 'iconRed.png',
-
-    iconSize:     [48, 55], // size of the icon
+    iconSize:     [68, 75], // size of the icon
     iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
     popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
 });
 
-var marker = L.marker([47.2162, -1.5492], {icon: greenIcon});//creation marqueur
-
-marker.addTo(mymap);
-marker.bindPopup("<b>Velo restant </b>" + marker.veloRestant + "<br>");
-
-
 // La requete AJAX
 $.ajax({
-
     type: "GET",
     url: "https://api.jcdecaux.com/vls/v1/stations?contract=Nantes&apiKey=c8ee751c6c7cf07c1d1ac13388abf822a7bef259",
     datatype: "json",
-    success: function (data){
-
-    
+    success: function (data){    
     //Afficher les station et les marqueur
     for (let i = 0; i < data.length; i++) {
         let lat = data[i].position.lat;
@@ -66,6 +55,10 @@ $.ajax({
         let veloDisponibleStation ='Vélos disponobles : ' +  data[i].available_bikes;
 
         var marker = L.marker([lat, lng], {icon: greenIcon});//creation marqueur
+
+        if(data[i].available_bikes < 0){
+          marker = L.marker([lat, lng], {icon: redIcon});
+        }
             
         marker.addTo(mymap);
         marker.bindPopup(nomStation + "<br>" + addresseStation + "<br>" + nombrePlaceStation + "<br>" + veloDisponibleStation);
@@ -78,7 +71,7 @@ $.ajax({
             infoStation.innerHTML = nomStation + "<br>" + addresseStation + "<br>" + nombrePlaceStation + "<br>" + veloDisponibleStation;
             veloReserver.innerHTML = data[i].name; 
 
-            $("input").prop('disabled', false); //Saisir son nom aprés avoir selectionne une station 
+            $("input").prop('disabled', false); //Saisir son nom qu'aprés avoir selectionne une station 
 
             //les conditions a respecter quand une station est selectionnnee
             if ($('#nom-client').val().length === 0 || $('#prenom-client').val().length === 0) {
@@ -87,7 +80,7 @@ $.ajax({
             $('#reserver').prop('disabled', false);
             }
 
-            if(data[i].available_bikes < 0){
+            if(data[i].available_bikes < 0){      //afficher ce message au paneau si il n'y a pas de velo dispo 
               infoStation.innerHTML = "Aucun velo n'est disponible dans cette station";
               infoStation.style.color = "#F75518 ";
               infoStation.style.fontSize = "1.5em";
@@ -96,81 +89,11 @@ $.ajax({
             }else {
               infoStation.style.color = "black ";
             }
-
-
-          sessionStorage.setItem('station', infoStation.innerHTML)
+          sessionStorage.setItem('infoStation', infoStation.innerHTML)
+          sessionStorage.setItem('veloReserver', veloReserver.innerHTML)
         });
       }
     } 
 }); 
 
 // Fin de la map 
-
-
-
-
-
-/*
-$("#reservation").css("display", "none"); //masquer le canvas
-
-$("#reserver").on("click", function(){
-        $("#reservation").css("display", "block"); // afficher le canvas
-        $("#fondMap").css("display", "block"); //rentre la map non cliquable  
-})
-
-$("#erase").on("click", function(){        
-       $('#submit').prop('disabled', true); //rentre le bouton valider non cliquable en effacant la signature 
-})
-
-$("#annuler").on("click", function(){ //quand la revertion est annulée
-        $("#reservation").css("display", "none"); //masquer le canvas
-        ctx.clearRect(0, 0, document.getElementById('canvas-sign').width, document.getElementById('canvas-sign').height);//reunitialisation de la signature
-        $('#submit').prop('disabled', true); //rendre le bouton valider non cliquable
-        $("#fondMap").css("display", "none"); // enlever le bloc sur la map et le rendre cliquable
-        $("input").prop('disabled', false);
-})
-
-$("#ConteneurCompteur").css("display", "none"); // masquer le bloc compteur
-
-$("#submit").on("click", function(){
-    $("#ConteneurCompteur").css("display", "block");
-    $("#reservation").css("display", "none"); //masquer le canvas
-    $('#reserver').prop('disabled', true);
-    $('input').prop('disabled', true);
-})
-*/
-
-//const form = document.querySelector('form');
-
-// Empêcher le form d'être soumis
-/*$('form').on('submit', function(e) {
-  e.preventDefault();
-});*/
-/*
-var activateButton = function(){
-    let valeurInputNom = $('#nom-client').val();
-    let valeurInputPrenom = $('#prenom-client').val();
-    if( valeurInputNom.length >= 1 && valeurInputPrenom.length >= 1){
-        console.log("code")
-        $('#reserver').prop('disabled', false);
-    }else{
-        $('#reserver').prop('disabled', true);
-        $('#reservation').hide()
-    }
-}
-*/
-
-
-
-
-
-//chr2
-
-//fin chr2
-
-
-//Fin du temps de la reservation
-
-
-
-

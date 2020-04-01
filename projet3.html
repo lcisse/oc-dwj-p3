@@ -17,74 +17,82 @@
 
 <body>
     <div id="conteneurPage">
-        <div id="logo"> <img id="igmLogo"src="image34.jpg" alt="logo velo"></div>
-        <div id="bienvenue">Bienvenue a Nantes avec les Soti'Velos à livre service</div>   
-        <div id="diapo">
-        	<div id="conteneur">
-                <img src="image28.jpg" alt="velo">
+        <header>
+            <div id="barSurDiapo"></div>
+            <h1 id="bienvenue">Bienvenue a Nantes avec les <span id="soti">&ensp;Soti'Velos&ensp;</span> à livre service</h1>   
+            <div id="diapo">
+            	<div id="conteneur">
+                    <img src="image28.jpg" alt="velo">
+                </div>
+                <button id="gauche">&lt</button>
+                <button id="droite">&gt</button>
+                <div id="playpause">
+                    <button id="stop" >stop</button>
+                    <button id="play" >play</button>
+                </div>
             </div>
-            <button id="gauche">&lt</button>
-            <button id="droite">&gt</button>
-            <div id="playpause">
-                <button id="stop" >stop</button>
-                <button id="play" >play</button>
+        </header>
+        
+        <!--Map et formulaire-->
+        <selection>
+            <div id="mapPanneau">
+                <div id="conteneurMap">  
+                   <div id="mapdiv"></div>
+                   <div id="fondMap"></div>
+                </div>
+                <div id='markers'></div>
+                <div id="Overlay"></div>
+
+                <div id="conteneurPaneaux">
+                    <div id="stationSelectionnee">
+                        <h2>Selectionnez une station à partir des marqueurs.</h2> 
+                    </div>
+                    <div id="conteneurForm">
+                        <form method="post" action="" >
+                            <input type="text" id="nom-client" name="noms" maxlength="20" placeholder="Nom" required value="" disabled = 'disabled'><br>
+                            <input type="text" id="prenom-client" name="prenom" maxlength="20" placeholder="Prénom" required value="" disabled = 'disabled'><br>
+                            <a href="#reservation"><button id="reserver"  disabled = 'disabled'>Réserver</button></a><br><br>
+                        </form>
+                    </div>
+                </div>        
             </div>
-        </div>
+        </selection>
 
-        <div id="mapPanneau">
-            <div id="conteneurMap">  
-             <div id="mapdiv"></div>
-             <div id="fondMap"></div>
-         </div>
-         <div id='markers'></div>
-         <div id="Overlay"></div>
-         <div id="conteneurPaneaux">
-            <div id="stationSelectionnee">
-                Selectionnez une station à partir des marqueurs. 
+        <!--Le canvas-->
+        <section>
+            <div id="reservation">
+                <h3>Signer pour valider votre reservation</h3>
+                <canvas id="canvas-sign" width="300" height="150"></canvas>
+                <div id="conteneurButtonsCanvas">
+                    <button id="erase" class="canvasBoutons">Effacer</button>
+                    <button id="submit" class="canvasBoutons" disabled = 'disabled'>Valider</button>
+                    <button id="annuler" class="canvasBoutons">Annuler</button>
+
+                </div>
             </div>
-
-
-            <div id="conteneurForm">
-                <form method="post" action="" >
-                    <input type="text" id="nom-client" name="noms" maxlength="20" placeholder="Nom" required value="" disabled = 'disabled'><br>
-                    <input type="text" id="prenom-client" name="prenom" maxlength="20" placeholder="Prénom" required value="" disabled = 'disabled'><br>
-                    <button id="reserver"  disabled = 'disabled'>Réserver</button><br><br>
-                </form>
+        </section>
+        
+        <!--Decompte reservation-->
+        <section>
+            <div id="ConteneurCompteur">
+                <p>Vélo réservé a la station :</p>
+                <p id="velo-reserver"></p>
+                <div id="stationReserver"></div>
+                <p>Temps restant : </p>
+                <div id="timer">00 : 00</div>
+                <button id="retact">Vous rétractez</button>
             </div>
+            <div id="finReservation">C'est la fin de votre reservation !</div>
+        </section>
 
-
-
-        </div>
+        <footer>
+            <p id="piedPage">CISSE Lamine, projet 3 DWJ Openclasscoom.</p>
+        </footer>
     </div>
-    <!--Le canvas-->
-    <div id="reservation">
-        <h3>Signer pour valider votre reservation</h3>
-        <canvas id="canvas-sign" width="300" height="150"></canvas>
-        <div id="conteneurButtonsCanvas">
-            <button id="erase" class="canvasBoutons">Effacer</button>
-            <button id="submit" class="canvasBoutons" disabled = 'disabled'>Valider</button>
-            <button id="annuler" class="canvasBoutons">Annuler</button>
-
-        </div>
-    </div>
-    <div id="ConteneurCompteur">
-        <p>Vélo réservé a la station :</p>
-        <p id="velo-reserver"></p>
-        <div id="stationReserver"></div>
-        <p>Temps restant : </p>
-        <div id="timer">00 : 00</div>
-        <button id="retact">Vous rétractez</button>
-    </div>
-    <div id="finReservation">C'est la fin de votre reservation !</div>
-
-    <footer>
-        <div id="piedPage">CISSE Lamine, projet 3 DWJ Openclasscoom.</div>
-    </footer>
-</div>
 
 <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
 <script src="projet3.js"></script>
-<script src="projet3-canvas.js"></script>*
+<script src="projet3-canvas.js"></script>
 <script src="projet3-diaporama.js"></script>
 <script src="projet3-storage.js"></script>
 <script src="projet3-chrono.js"></script>

@@ -33,7 +33,6 @@ class Diaporama{
         }
 
         playImage() {
-            //this.slideInterval = this.slideInterval;
             this.slideInterval = setInterval(this.nextImage.bind(this) , 5000);
         }
 
@@ -45,8 +44,9 @@ class Diaporama{
             }
         }         
 }
+//Fin de la classe diapo
 
-var images =['image28','image35','carte2', 'image39', 'image38', 'image41'];
+var images =['image28','image35','carte2', 'image39', 'imagek', 'image41'];
 
 let monDiaporama = new Diaporama(
     document.getElementById("conteneur"), 
@@ -60,7 +60,7 @@ let monDiaporama = new Diaporama(
     );
 
 monDiaporama.playImage();
-//var slideIntervals = setInterval(monDiaporama.nextImage.bind(monDiaporama), 1000);
+
 $('#gauche').on('click', function(event){
     monDiaporama.prewImage();
 });

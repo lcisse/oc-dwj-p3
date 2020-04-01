@@ -5,7 +5,7 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=p
     maxZoom: 18,
     id: 'mapbox.streets',
     accessToken: 'your.mapbox.access.token'
-}).addTo(mymap);*/
+}).addTo(mymap);
 
 //modification du marqueur
 var greenIcon = L.icon({

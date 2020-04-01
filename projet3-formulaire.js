@@ -9,6 +9,9 @@ class Formulaire{
       this.ConteneurCompteur = $("#ConteneurCompteur");
       this.valeurInputNom = $('#nom-client');
       this.valeurInputPrenom = $('#prenom-client');
+      this.clean = function(){
+                     this.ctx.clearRect(0, 0, document.getElementById('canvas-sign').width, document.getElementById('canvas-sign').height);
+                   };
   }
   
   blocReservCompteur(){
@@ -26,7 +29,8 @@ class Formulaire{
 
   boutonAnnuler(){
       this.reservation.css("display", "none"); //masquer le canvas
-      this.ctx.clearRect(0, 0, document.getElementById('canvas-sign').width, document.getElementById('canvas-sign').height);//reunitialisation de la signature
+      this.clean.bind(this);
+      //this.ctx.clearRect(0, 0, document.getElementById('canvas-sign').width, document.getElementById('canvas-sign').height);//reunitialisation de la signature
       this.submit.prop('disabled', true); //rendre le bouton valider non cliquable
       this.fondMap.css("display", "none"); // enlever le bloc sur la map et le rendre cliquable
       this.input.prop('disabled', false);
@@ -52,7 +56,6 @@ class Formulaire{
   empechForm(e){
        e.preventDefault();
   }
-
 }
 //Fin de la classe formulaire
 
@@ -80,5 +83,3 @@ $("#submit").on("click", function(){
 $('form').on('submit', function(e) {
      formulaire.empechForm(e);
 });
-
-//Fin instance de la classe formulaire
