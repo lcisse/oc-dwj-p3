@@ -12,6 +12,10 @@ class Canvas {
         this.ctx = this.canvasSign.getContext('2d'); 
         console.log('constructor',this.ctx)
     }
+
+    getContext(){
+        return this.ctx
+    }
     
     // Set-up the canvas and add our event handlers after the page has loaded
     init(){
@@ -67,7 +71,6 @@ class Canvas {
     }
 
     sketchpad_mouseMove(e){
-        //console.log('sketchpad_mouseMove',this)
         // Update the mouse co-ordinates when moved
         this.getMousePos(e);
         // Draw a dot if the mouse button is currently being pressed
@@ -91,8 +94,4 @@ class Canvas {
 }
 //Fin de la class canvas
  
-$(document).ready(function () {
-    var canvas = new Canvas();
-    canvas.init();
 
-});

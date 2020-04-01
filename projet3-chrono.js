@@ -1,11 +1,8 @@
     //class chrono
  class Chrono2{
-  constructor(){
+  constructor(context){
     this.dureeInit = 60 * 20;
-    this.clean = function(){
-      this.ctx.clearRect(0, 0, document.getElementById('canvas-sign').width, document.getElementById('canvas-sign').height);
-  };
-
+    this.ctx = context;
   }
 
   decrement(){
@@ -64,27 +61,29 @@
   }
 
  stop(handle){
+  console.log(this)
   clearInterval(handle);
   this.dureeInit = 60 * 20;
   $("#timer").html("00 : 00");
   $("#ConteneurCompteur").css("display", "none"); //Masquer le compteur en se retractant
   $("#fondMap").css("display", "none");
-  /*var clean = function(){
-      this.ctx.clearRect(0, 0, document.getElementById('canvas-sign').width, document.getElementById('canvas-sign').height);
-  }.bind(this);*/
-  this.clean.bind(this);
-  //this.ctx.clearRect(0, 0, document.getElementById('canvas-sign').width, document.getElementById('canvas-sign').height);
+  this.ctx.clearRect(0, 0, document.getElementById('canvas-sign').width, document.getElementById('canvas-sign').height);
   $('#submit').prop('disabled', true);
   $('input').prop('disabled', false);
   $('#reserver').prop('disabled', false);
+
  }
 }
 //Fin de la classe
 
 //Début de l'exécution du script global
 $(document).ready(function(){
+  
+   var canvas = new Canvas(); //Objet canvas
+       canvas.init();
 
-  var chrono2 = new Chrono2()
+  var context = canvas.getContext();
+  var chrono2 = new Chrono2(context)
       chrono2.getMinute()
       chrono2.getSeconde()     
       chrono2.styleChrono()
@@ -95,7 +94,7 @@ $(document).ready(function(){
 
   $("#retact").click(function(){
     chrono2.stop(handle)
-  })
+  }.bind(chrono2))
 
   chrono2.finReservation();
 });

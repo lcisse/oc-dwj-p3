@@ -1,6 +1,6 @@
 //La class formualaire
 class Formulaire{
-  constructor(){
+  constructor(context){
       this.reservation = $("#reservation");
       this.fondMap = $("#fondMap");
       this.submit = $('#submit');
@@ -9,9 +9,7 @@ class Formulaire{
       this.ConteneurCompteur = $("#ConteneurCompteur");
       this.valeurInputNom = $('#nom-client');
       this.valeurInputPrenom = $('#prenom-client');
-      this.clean = function(){
-                     this.ctx.clearRect(0, 0, document.getElementById('canvas-sign').width, document.getElementById('canvas-sign').height);
-                   };
+      this.ctx = context;
   }
   
   blocReservCompteur(){
@@ -29,8 +27,7 @@ class Formulaire{
 
   boutonAnnuler(){
       this.reservation.css("display", "none"); //masquer le canvas
-      this.clean.bind(this);
-      //this.ctx.clearRect(0, 0, document.getElementById('canvas-sign').width, document.getElementById('canvas-sign').height);//reunitialisation de la signature
+      this.ctx.clearRect(0, 0, document.getElementById('canvas-sign').width, document.getElementById('canvas-sign').height);//reunitialisation de la signature
       this.submit.prop('disabled', true); //rendre le bouton valider non cliquable
       this.fondMap.css("display", "none"); // enlever le bloc sur la map et le rendre cliquable
       this.input.prop('disabled', false);
@@ -57,9 +54,13 @@ class Formulaire{
        e.preventDefault();
   }
 }
-//Fin de la classe formulaire
 
-var formulaire = new Formulaire();
+//Fin de la classe formulaire
+var canvas = new Canvas(); //Objet canvas
+    canvas.init();
+var context = canvas.getContext();
+
+var formulaire = new Formulaire(context);//Objet formulaire
 
 formulaire.blocReservCompteur();
 formulaire.activationBoutonForm();
