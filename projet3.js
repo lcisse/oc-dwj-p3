@@ -1,4 +1,17 @@
 
+let storage = new Storage();
+storage.getLocal(); 
+
+
+$('#nom-client').on('input',function(){
+formulaire.activationBoutonForm();
+localStorage.setItem('nom',this.value);
+})
+
+$('#prenom-client').on('input',function(){
+formulaire.activationBoutonForm();
+localStorage.setItem('prenom',this.value);
+})
 
 
 //var mymap =  L.map('mapdiv').setView([47.2162, -1.5492], 15);

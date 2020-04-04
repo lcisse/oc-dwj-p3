@@ -14,18 +14,3 @@ class Storage {
 }
 //Fin de la class local storage
 
-let storage = new Storage();
-
-$(document).ready(function(){
-    storage.getLocal(); 
-})
-
-$('#nom-client').on('input',function(){
-    formulaire.activationBoutonForm();
-    localStorage.setItem('nom',this.value);
-})
-
-$('#prenom-client').on('input',function(){
-   formulaire.activationBoutonForm();
-   localStorage.setItem('prenom',this.value);
-})
