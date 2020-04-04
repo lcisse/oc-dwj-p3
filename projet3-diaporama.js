@@ -47,16 +47,17 @@ class Diaporama{
 //Fin de la classe diapo
 
 var images =['image28','image35','carte2', 'image39', 'imagek', 'image41'];
-
-let monDiaporama = new Diaporama(
-    document.getElementById("conteneur"), 
-    images,
-    ["Bienvenue !",
+var message =  ["Bienvenue !",
      "Utilisez également les flèches du clavier pour avancer ou réculer.",
      "Pour réserver, selectionnez une station à partir des marqueurs.",
      "Ensuite si un velo est disonible, remplissez le formulaire.", 
      "Enfin signez pour valider votre réservation.",
-     "Nous vous souhaitons une bonne route."],   
+     "Nous vous souhaitons une bonne route."]
+
+let monDiaporama = new Diaporama(
+    document.getElementById("conteneur"), 
+    images,
+    message,   
     );
 
 monDiaporama.playImage();

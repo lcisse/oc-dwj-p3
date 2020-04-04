@@ -32,7 +32,7 @@ $.ajax({
 }); 
 
 function parseData(data){
-    console.log(data);*/
+    console.log(data);
 
 //Afficher les station et les marqueur
 for (let i = 0; i < data.length; i++) {
@@ -49,7 +49,7 @@ for (let i = 0; i < data.length; i++) {
     marker.bindPopup(nomStation + "<br>" + addresseStation + "<br>" + nombrePlaceStation + "<br>" + veloDisponibleStation);
 
 
-    marker.on('click',function(e){*/
+    marker.on('click',function(e){
     //populer la div
     let infoStation = document.getElementById('stationSelectionnee');
     let veloReserver = document.getElementById('velo-reserver');
