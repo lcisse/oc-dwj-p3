@@ -1,8 +1,87 @@
+//Debut Diapo
+var images =['image28','image35','carte2', 'image39', 'imagek', 'image41'];
+var message =  ["Bienvenue !",
+     "Utilisez également les flèches du clavier pour avancer ou réculer.",
+     "Pour réserver, selectionnez une station à partir des marqueurs.",
+     "Ensuite si un velo est disonible, remplissez le formulaire.", 
+     "Enfin signez pour valider votre réservation.",
+     "Nous vous souhaitons une bonne route."]
 
-//Objet storage
+let monDiaporama = new Diaporama( // objet diapo
+    document.getElementById("conteneur"), 
+    images,
+    message,   
+    );
+
+monDiaporama.playImage();
+
+$('#gauche').on('click', function(event){
+    monDiaporama.prewImage();
+});
+
+$('#droite').on('click', function(event){
+    monDiaporama.nextImage();
+});
+
+$('#stop').on('click', function(event){
+    monDiaporama.stopImage();
+});
+
+$('#play').on('click', function(event){
+    monDiaporama.playImage();
+});
+//Déplacer le diaporama avec les flèche du clavier
+$(document).on("keydown", function(e){
+    monDiaporama.flecheClavier(e);
+});
+//Fin Diapo
+
+var canvas = new Canvas(); //Objet canvas
+    canvas.init();
+var context = canvas.getContext();
+
+//Formulaire
+var formulaire = new Formulaire(context);//Objet formulaire
+
+formulaire.blocReservCompteur();
+formulaire.activationBoutonForm();
+
+$("#reserver").on("click", function(){
+     formulaire.boutonReserver();   
+})
+
+$("#erase").on("click", function(){        
+     formulaire.boutonErase();   
+})
+
+$("#annuler").on("click", function(){ //quand la revertion est annulée
+     formulaire.boutonAnnuler();
+})
+
+$("#submit").on("click", function(){
+     formulaire.boutonValider();
+})
+
+$('form').on('submit', function(e) {
+     formulaire.empechForm(e);
+});
+//Fin formulaire
+
+//chrono
+var chrono2 = new Chrono2()
+
+$("#submit").click(function () {
+    handle = chrono2.start()
+});
+                               
+$("#retact").click(function () {
+    chrono2.stop(handle)
+}.bind(chrono2))
+//Fin chrono2
+
+//storage
 let storage = new Storage();
 storage.getLocal(); 
-
 
 $('#nom-client').on('input',function(){
 formulaire.activationBoutonForm();
@@ -15,7 +94,8 @@ localStorage.setItem('prenom',this.value);
 })
 //fin storage
 
-//var mymap =  L.map('mapdiv').setView([47.2162, -1.5492], 15);
+
+//Map
 var mapgenerator = new MapGenerator();
 var mymap = mapgenerator.factory('mapdiv',[47.2162, -1.5492],15);
 mapgenerator.addLayerTo(mymap);
