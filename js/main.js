@@ -1,5 +1,5 @@
 //Debut Diapo
-var images =['image28','image35','carte2', 'image39', 'imagek', 'image41'];
+var images =['images/image28','images/image35','images/carte2', 'images/image39', 'images/imagek', 'images/image41'];
 var message =  ["Bienvenue !",
      "Utilisez également les flèches du clavier pour avancer ou réculer.",
      "Pour réserver, selectionnez une station à partir des marqueurs.",
@@ -102,14 +102,14 @@ mapgenerator.addLayerTo(mymap);
 
 //creation d'icon
 var greenIcon = L.icon({
-    iconUrl: 'markerVelo.png',
+    iconUrl: 'images/markerVelo.png',
     iconSize:     [48, 55], // size of the icon
     iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
     popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
 });
 
 var redIcon = L.icon({
-    iconUrl: 'iconRed.png',
+    iconUrl: 'images/iconRed.png',
     iconSize:     [68, 75], // size of the icon
     iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
     popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
