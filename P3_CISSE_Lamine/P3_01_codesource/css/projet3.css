@@ -1,0 +1,279 @@
+#conteneurPage{
+    position: relative;
+    margin: 0 auto;
+    border: 2px solid white;
+    border-radius: 5px;
+    background-color: white;    
+}
+
+#bienvenue{
+   display: flex;
+   font-size: 2.5em;
+   justify-content: center;
+   margin-top: 20px;
+   font-weight: bold;          
+}
+#diapo{
+   width: 801px;
+   margin: auto;
+   position: relative;
+   margin-top: 30px;
+
+}
+
+#conteneur{
+  width: 800px;
+  height: 480px;
+  text-align: center;
+  font-size: 1.5em;
+  border: 1px solid rgb(207,218,162);
+}
+#conteneur img{
+   width: 100%;
+   height: 100%;   
+}
+
+#gauche{
+   position: absolute;
+   top: 200px;
+   z-index: 10;
+   width: 35px;
+   height: 60px;
+   border-radius: 0px 50px 50px 0px; 
+   font-size: 30px;
+   color: gray;
+   border: 1px solid gray;
+   background-color: rgb(232,223,214);
+   border: none;
+}
+
+#droite{
+   position: absolute;
+   right: 0;
+   top: 200px;
+   z-index: 10;
+   width: 35px;
+   height: 60px;
+   border-radius: 50px 0px 0px 50px;
+   font-size: 30px;
+   color: gray;
+   border: 1px solid gray;
+   background-color: rgb(232,223,214);
+   border: none;
+}
+
+#playpause{
+        display: flex;
+        margin: auto;
+        justify-content: center;
+        margin-bottom: 30px;
+        margin-top: 35px;
+        padding-top: 10px;
+}
+
+#stop{
+   width: 150px;
+   height: 35px;
+   border-radius: 45px 0px 0px 45px;
+   color: gray;
+   background-color: rgb(232,223,214);
+}
+
+#play{
+   width: 150px;
+   height: 35px;
+   border-radius: 0px 45px 45px 0px;
+   color: gray;
+   background-color: rgb(232,223,214);
+}
+
+#mapdiv{
+   width: 750px;
+   height: 550px;
+   
+}
+
+#fondMap{
+display: none;
+position: absolute;
+background-color: black;
+width: 750px;
+height: 550px;
+top: 0px;
+z-index: 500;
+opacity: 0.4;
+}
+
+#mapPanneau{
+   display: flex;
+   align-items: center;
+   justify-content: space-around;
+   position: relative;
+   padding-left: 110px;
+}
+
+#conteneurPaneaux{
+   width: 400px;
+   height: 500px;
+   background-color: rgb(232,223,214);
+   margin-right: 110px;
+}
+
+#stationSelectionnee{  
+   height: 150px;
+   background-color: rgb(216,206,197);
+   padding: 20px 20px 0px 20px;
+   text-align: center;
+}
+#stationSelectionnee, h2{
+   font-size: 1.3em;
+}
+
+#conteneurForm{
+   position: relative;
+   width: 480px
+}
+
+form{
+   margin-top: 40px;
+   width: 400px;
+}
+
+input{
+   display: flex;
+   width: 300px;
+   text-align: center;
+   height: 40px;
+   border-radius: 40px;
+   border: none;
+   margin: 0 auto;
+}
+
+input:hover {
+background-color:  rgb(207,218,162);
+}
+
+#reserver{
+   position: absolute;
+   justify-content: center; 
+   left: 50px;
+   width: 300px;
+   height: 40px;
+   border-radius: 40px;
+   background-color: rgb(207,218,162);
+   border: none
+}
+
+form button{
+   width: 200px;
+   height: 40px;
+   border-radius: 40px;
+   border: none;
+   margin: 0 auto;
+
+}
+
+#reservation{
+   display: block;
+   width: 300px;
+   height: 150px;
+   margin: 0 auto;
+   margin-bottom: 100px;
+}
+
+#canvas-sign{
+   border: 2px solid rgb(207,218,162); 
+}
+
+#conteneurButtonsCanvas{
+   display: flex;
+   justify-content: center;
+}
+
+.canvasBoutons{
+   width: 90px;
+   height: 30px;
+   margin: 5px 3px 20px 3px;
+   border-radius: 40px;
+   border: none;
+   background-color: rgb(207,218,162);
+
+}
+
+#ConteneurCompteur{
+   display: block;
+   width: 300px;
+   height: 250px;
+   margin: 0 auto;
+   margin-top: 30px;
+   margin-bottom: 50px;
+   padding: 20px; 
+   text-align: center;
+   border: 2px solid rgb(207,218,162);
+}
+
+#timer{
+   display: flex;
+   width: 80px;
+   height: 50px;
+   border: 4px solid #badc58;
+   justify-content: center;
+   align-items: center;
+   margin: 0 auto;
+   color: black;
+   font-size: 1.5em;
+}
+
+#retact{
+   width: 150px;
+   height: 40px;
+   border-radius: 40px;
+   background-color: rgb(207,218,162);
+   border: none;
+   margin: 0 auto;
+   margin-top: 10px;
+
+}
+
+#finReservation{
+   display: none;
+   width: 320px;
+   height: 40px;
+   margin: 0 auto;
+   margin-top: 30px;
+   margin-bottom: 50px;
+   padding: 20px; 
+   background-color: rgb(232,223,214);
+   text-align: center;
+   border: 2px solid rgb(207,218,162);
+   color: red;
+   font-size: 1.5em;
+   animation: colorblink 2s infinite;
+}
+
+@keyframes colorblink { 
+0% { }
+50% { color:green; } 
+}
+
+a{
+  text-decoration: none;
+  color: black;
+}
+
+#barSurDiapo{
+  width: 100%;
+  height: 65px;
+  background-color: rgb(26, 199, 107);
+  z-index: 5;
+}
+
+#soti{
+  color: rgb(26, 199, 107); 
+}
+
+#piedPage{
+  height: 30px;
+  background-color: rgb(26, 199, 107);
+  margin-bottom: -15px;  
+}

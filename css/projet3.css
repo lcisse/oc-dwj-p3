@@ -87,10 +87,6 @@
    background-color: rgb(232,223,214);
 }
 
-#conteneurMap{
-        position: relative;
-}
-
 #mapdiv{
    width: 750px;
    height: 550px;
@@ -103,22 +99,24 @@ position: absolute;
 background-color: black;
 width: 750px;
 height: 550px;
-top: -1px;
+top: 0px;
 z-index: 500;
 opacity: 0.4;
 }
 
 #mapPanneau{
+   display: flex;
+   align-items: center;
+   justify-content: space-around;
    position: relative;
-   padding-left: 100px;
+   padding-left: 110px;
 }
+
 #conteneurPaneaux{
-   position: absolute;
    width: 400px;
    height: 500px;
    background-color: rgb(232,223,214);
-   top: 30px;
-   right: 150px;
+   margin-right: 110px;
 }
 
 #stationSelectionnee{  
@@ -264,6 +262,7 @@ a{
 }
 
 #barSurDiapo{
+  width: 100%;
   height: 65px;
   background-color: rgb(26, 199, 107);
   z-index: 5;

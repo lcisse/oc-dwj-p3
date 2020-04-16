@@ -19,7 +19,7 @@
     <div id="conteneurPage">
         <header>
             <div id="barSurDiapo"></div>
-            <h1 id="bienvenue">Bienvenue a Nantes avec les <span id="soti">&ensp;Soti'Velos&ensp;</span> à livre service</h1>   
+            <h1 id="bienvenue">Bienvenue à Nantes avec les <span id="soti">&ensp;Soti'Velos&ensp;</span> en libre-service</h1>   
             <div id="diapo">
             	<div id="conteneur">
                     <img src="images/image28.jpg" alt="velo">
@@ -45,13 +45,13 @@
 
                 <div id="conteneurPaneaux">
                     <div id="stationSelectionnee">
-                        <h2>Selectionnez une station à partir des marqueurs.</h2> 
+                        <h2>Sélectionnez une station à partir des marqueurs.</h2> 
                     </div>
                     <div id="conteneurForm">
                         <form method="post" action="" >
                             <input type="text" id="nom-client" name="noms" maxlength="20" placeholder="Nom" required value="" disabled = 'disabled'><br>
                             <input type="text" id="prenom-client" name="prenom" maxlength="20" placeholder="Prénom" required value="" disabled = 'disabled'><br>
-                            <a href="#reservation"><button id="reserver"  disabled = 'disabled'>Réserver</button></a><br><br>
+                            <button id="reserver"  disabled = 'disabled'><a href="#piedPage">Réserver</a></button><br><br>
                         </form>
                     </div>
                 </div>        
@@ -65,7 +65,7 @@
                 <canvas id="canvas-sign" width="300" height="150"></canvas>
                 <div id="conteneurButtonsCanvas">
                     <button id="erase" class="canvasBoutons">Effacer</button>
-                    <button id="submit" class="canvasBoutons" disabled = 'disabled'>Valider</button>
+                    <button id="submit" class="canvasBoutons" disabled = 'disabled'><a href="#piedPage">Valider</a></button>
                     <button id="annuler" class="canvasBoutons">Annuler</button>
 
                 </div>
@@ -97,7 +97,7 @@
 <script src="js/projet3-chrono.js"></script>
 <script src="js/projet3-formulaire.js"></script>
 <script src="js/projet3-mapgenerator.js"></script>
-<script src="js/projet3.js"></script>
+<script src="js/projet3-ajax.js"></script>
 <script src="js/main.js"></script>
 </body>
 

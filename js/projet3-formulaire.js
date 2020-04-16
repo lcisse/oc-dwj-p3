@@ -11,7 +11,7 @@ class Formulaire{
       this.valeurInputPrenom = $('#prenom-client');
       this.ctx = context;
   }
-  
+  //masquer le canvas et le compteur
   blocReservCompteur(){
      this.reservation.css("display", "none");
      this.ConteneurCompteur.css("display", "none");
@@ -48,6 +48,42 @@ class Formulaire{
         this.reserver.prop('disabled', true);
         this.reservation.css("display", "none");
     }
+  }
+
+  clicBoutonForm(){
+      $("#reserver").on("click", function(){
+          this.boutonReserver();   
+      }.bind(this))
+
+      $("#erase").on("click", function(){        
+          this.boutonErase();   
+      }.bind(this))
+
+      $("#annuler").on("click", function(){ //quand la revertion est annulée
+          this.boutonAnnuler();
+      }.bind(this))
+
+      $("#submit").on("click", function(){
+          this.boutonValider();
+      }.bind(this))
+
+      $('form').on('submit', function(e) {
+          this.empechForm(e);
+      }.bind(this));
+
+      $('#nom-client').on('input',function(){
+          formulaire.activationBoutonForm();
+      }.bind(this));
+
+      $('#prenom-client').on('input',function(){
+          formulaire.activationBoutonForm();
+      }.bind(this));
+  }
+
+  initForm(){
+      this.activationBoutonForm();
+      this.blocReservCompteur();
+      this.clicBoutonForm();
   }
 
   empechForm(e){

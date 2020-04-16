@@ -73,5 +73,23 @@ class Chrono2 {
     $('#reserver').prop('disabled', false);
 
   }
+
+  clicValider(){
+    $("#submit").click(function () {
+        this.handle = this.start()
+    }.bind(this));
+  }
+
+  clicRetact(){
+    $("#retact").click(function () {
+        this.stop(this.handle)
+    }.bind(this))
+  }
+
+  initChrono2(){
+    this.clicValider();
+    this.clicRetact();
+
+  }
 }
 //Fin de la classe
