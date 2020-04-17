@@ -26,6 +26,14 @@ class Canvas {
         $('#erase').on('click', function () {        
             this.ctx.clearRect(0, 0, this.canvasSign.width, this.canvasSign.height);     
         }.bind(this));
+
+        $("#annuler").on("click", function(){ //quand la revertion est annulée
+            this.ctx.clearRect(0, 0, this.canvasSign.width, this.canvasSign.height);
+        }.bind(this));
+
+        $("#submit").on("click", function(){
+            this.ctx.clearRect(0, 0, this.canvasSign.width, this.canvasSign.height);
+          }.bind(this));
     }
 
     // Parameters are: A canvas context, the x position, the y position, the size of the dot

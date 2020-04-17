@@ -27,7 +27,6 @@ class Formulaire{
 
   boutonAnnuler(){
       this.reservation.css("display", "none"); //masquer le canvas
-      this.ctx.clearRect(0, 0, document.getElementById('canvas-sign').width, document.getElementById('canvas-sign').height);//reunitialisation de la signature
       this.submit.prop('disabled', true); //rendre le bouton valider non cliquable
       this.fondMap.css("display", "none"); // enlever le bloc sur la map et le rendre cliquable
       this.input.prop('disabled', false);
@@ -38,7 +37,6 @@ class Formulaire{
       this.reservation.css("display", "none"); //masquer le canvas
       this.reserver.prop('disabled', true);
       this.input.prop('disabled', true);
-      this.ctx.clearRect(0, 0, document.getElementById('canvas-sign').width, document.getElementById('canvas-sign').height);//reunitialisation de la signature
   }
 
   activationBoutonForm(){

@@ -18,9 +18,8 @@ let monDiaporama = new Diaporama( // objet diapo
 
 var canvas = new Canvas(); //Objet canvas
     canvas.init();
-var context = canvas.getContext();
-
-var formulaire = new Formulaire(context);//Objet formulaire
+    
+var formulaire = new Formulaire();//Objet formulaire
     formulaire.initForm();
 
 var chrono2 = new Chrono2()
