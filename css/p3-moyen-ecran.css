@@ -71,40 +71,40 @@ height: 750px;
 }
 
 #conteneurPaneaux{
-   width: 500px;
-   height: 600px;
+   width: 800px;
+   height: 750px;
    margin-right: 0px;
    margin-top: 50px;
 }
 
 #stationSelectionnee{  
-   height: 150px;
+   height: 250px;
 }
 
 #stationSelectionnee, h2{
-   font-size: 1.5em;
+   font-size: 1.8em;
 }
 
 #conteneurForm{
-   width: 500px;
+   width: 800px;
    height: 300px;
 }
 
 form{
    margin-top: 40px;
-   width: 500px;
+   width: 800px;
 }
 
 input{
-   width: 400px;
+   width: 600px;
    height: 60px;
    font-size: 1.5em;
    margin-top: 20px;
 }
 
 #reserver{ 
-   left: 60px;
-   width: 400px;
+   left: 100px;
+   width: 600px;
    height: 60px;
    font-size: 1.5em;
    margin-top: 20px;

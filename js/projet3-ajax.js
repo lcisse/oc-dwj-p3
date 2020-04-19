@@ -48,7 +48,7 @@ class Ajax{
                     veloReserver.innerHTML = data[i].name;
 
                     if (window.matchMedia("(max-width: 1024px)").matches) {
-                        infoStation.style.fontSize = "1.5em";
+                        infoStation.style.fontSize = "2em";
                     }else{
                         infoStation.style.fontSize = "1.2em";
                     } 
