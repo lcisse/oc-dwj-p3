@@ -43,9 +43,15 @@ class Ajax{
                 //populer la div
                 let infoStation = document.getElementById('stationSelectionnee');
                 let veloReserver = document.getElementById('velo-reserver');
-                    infoStation.style.fontSize = "1.2em";
+                    //infoStation.style.fontSize = "1.2em";
                     infoStation.innerHTML = nomStation + "<br>" + addresseStation + "<br>" + nombrePlaceStation + "<br>" + veloDisponibleStation;
-                    veloReserver.innerHTML = data[i].name; 
+                    veloReserver.innerHTML = data[i].name;
+
+                    if (window.matchMedia("(max-width: 1024px)").matches) {
+                        infoStation.style.fontSize = "1.5em";
+                    }else{
+                        infoStation.style.fontSize = "1.2em";
+                    } 
 
                     $("input").prop('disabled', false); //Saisir son nom qu'aprés avoir selectionne une station 
 

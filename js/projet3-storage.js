@@ -22,9 +22,15 @@ class Storage {
         }.bind(this))
     } 
 
+    /*recupererReserv(){
+        sessionStorage.setItem('reservation', $('#timer').html());
+
+    }*/
+
     initStorage(){
         this.getLocal();
         this.setNomPrenom();
+        //this.recupererReserv();
     }   
 }
 //Fin de la class local storage

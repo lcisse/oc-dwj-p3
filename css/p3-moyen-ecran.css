@@ -1,0 +1,162 @@
+body{
+	width: 100%;
+}
+#conteneurPage{
+    width: 1000px; 
+}
+
+#bienvenue{
+   width: 100%;
+   font-size: 2.3em;
+   margin-top: 0px;
+
+}
+
+#diapo{
+   width: 90%;
+   margin: auto;
+   position: relative;
+   margin-top: 30px;
+}
+
+#conteneur{
+  width: 100%;
+  height: 480px;
+  font-size: 1.8em;
+}
+
+#gauche{
+   width: 45px;
+   height: 100px; 
+   font-size: 45px;
+ 
+}
+
+#droite{
+   width: 45px;
+   height: 100px;
+   font-size: 45px;
+}
+
+#stop{
+   width: 200px;
+   height: 45px;
+   font-size: 1.3em;
+}
+
+#play{
+   width: 200px;
+   height: 45px;
+   font-size: 1.3em;
+}
+
+#mapdiv{
+   width: 900px;
+   height: 750px;   
+}
+
+#fondMap{
+width: 900px;
+height: 750px;
+
+}
+
+#mapPanneau{
+   display: flex;
+   align-items: center;
+   justify-content: space-around;
+   position: relative;
+   padding-left: 0px;
+   flex-direction: column;
+}
+
+#conteneurPaneaux{
+   width: 500px;
+   height: 600px;
+   margin-right: 0px;
+   margin-top: 50px;
+}
+
+#stationSelectionnee{  
+   height: 150px;
+}
+
+#stationSelectionnee, h2{
+   font-size: 1.5em;
+}
+
+#conteneurForm{
+   width: 500px;
+   height: 300px;
+}
+
+form{
+   margin-top: 40px;
+   width: 500px;
+}
+
+input{
+   width: 400px;
+   height: 60px;
+   font-size: 1.5em;
+   margin-top: 20px;
+}
+
+#reserver{ 
+   left: 60px;
+   width: 400px;
+   height: 60px;
+   font-size: 1.5em;
+   margin-top: 20px;
+}
+
+#reservation{
+   width: 600px;
+   height: 300px;
+   margin: 0 auto;
+   margin-bottom: 200px;
+}
+
+#reservation, h3{
+	font-size: 1.5em;
+}
+
+#canvas-sign{
+   width: 450px;
+   height: 300px;
+   margin-left: 70px;
+}
+
+.canvasBoutons{
+   width: 150px;
+   height: 60px;
+   font-size: 1em;
+}
+
+#ConteneurCompteur{
+   width: 450px;
+   height: 360px;
+}
+
+#ConteneurCompteur, p{
+   font-size: 1.3em;
+}
+
+#timer{
+   width: 120px;
+   height: 80px;
+   font-size: 1.8em;
+}
+
+#retact{
+   width: 280px;
+   height: 50px;
+   border-radius: 40px;
+   font-size: 1.1em;
+   margin-top: 20px;
+}
+#piedPage{
+  height: 50px; 
+  font-size: 1.5em;
+  margin-bottom: 0px; 
+}
