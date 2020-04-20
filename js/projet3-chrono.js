@@ -36,9 +36,17 @@ class Chrono2 {
 
   updateTimer(minute,seconde){
     $("#timer").html(minute + " : " + seconde);
+
+
+    //session storage decompte
+    let stockerDecompte = sessionStorage.getItem('decompte');
+    sessionStorage.setItem('decompte', minute + " : " + seconde);
+    if(stockerDecompte){
+       document.getElementById('decompte').innerHTML = stockerDecompte;
+    }
   }
 
-  finReservation() {
+  finReservation(handle) {
     if (this.getMinute() === 0 && this.getSeconde() === 0) {
       $("#ConteneurCompteur").css("display", "none");
       clearInterval(handle);
@@ -89,7 +97,6 @@ class Chrono2 {
   initChrono2(){
     this.clicValider();
     this.clicRetact();
-
   }
 }
 //Fin de la classe

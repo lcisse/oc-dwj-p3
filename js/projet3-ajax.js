@@ -71,9 +71,34 @@ class Ajax{
                     }else {
                       infoStation.style.color = "black ";
                     }
+
+                    //let reserv = sessionStorage.getItem('veloReserver'); 
+                    //if(reserv){
+                     // veloReserver.innerHTML = reserv;
+                      //$("#ConteneurCompteur").css("display", "block");
+                    //}
+
+
+
+                    /*let reserv = sessionStorage.getItem('veloReserver'); 
+                    if(reserv){
+                      document.getElementById('resernVelo').innerHTML = reserv;
+                      //$("#ConteneurCompteur").css("display", "block");
+                    }*/
+
+
+
                   sessionStorage.setItem('infoStation', infoStation.innerHTML);
                   sessionStorage.setItem('veloReserver', veloReserver.innerHTML);                
             });
+
+                   $(document).ready(function () {
+                      let reserv = sessionStorage.getItem('veloReserver'); 
+                    if(reserv){
+                      document.getElementById('resernVelo').innerHTML = reserv;
+                      //$("#ConteneurCompteur").css("display", "block");
+                    }
+                   });
           }
         } 
      });

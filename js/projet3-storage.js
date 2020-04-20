@@ -8,8 +8,15 @@ class Storage {
     }
 
     getLocal(){
-        this.nomClient.val(localStorage.getItem(this.nom));
-        this.prenomClient.val(localStorage.getItem(this.prenom));
+        let recupererNom = localStorage.getItem(this.nom);
+        let recupererPrenom = localStorage.getItem(this.prenom); 
+            this.nomClient.val(recupererNom);
+            this.prenomClient.val(recupererPrenom);
+
+
+            document.getElementById('visiteur').innerHTML = recupererPrenom + " " + recupererNom;
+
+            
     }
 
     setNomPrenom(){

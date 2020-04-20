@@ -70,11 +70,11 @@ class Formulaire{
       }.bind(this));
 
       $('#nom-client').on('input',function(){
-          formulaire.activationBoutonForm();
+          this.activationBoutonForm();
       }.bind(this));
 
       $('#prenom-client').on('input',function(){
-          formulaire.activationBoutonForm();
+          this.activationBoutonForm();
       }.bind(this));
   }
 
