@@ -2,6 +2,7 @@
 class Chrono2 {
   constructor() {
     this.dureeInit = 60 * 20;
+    this.decompte = 0;
   }
 
   decrement() {
@@ -36,14 +37,20 @@ class Chrono2 {
 
   updateTimer(minute,seconde){
     $("#timer").html(minute + " : " + seconde);
-
-
     //session storage decompte
-    let stockerDecompte = sessionStorage.getItem('decompte');
-    sessionStorage.setItem('decompte', minute + " : " + seconde);
-    if(stockerDecompte){
-       document.getElementById('decompte').innerHTML = stockerDecompte;
-    }
+    sessionStorage.setItem('timer', minute + " : " + seconde);
+    sessionStorage.setItem('decompte1', this.decompte);    
+  }
+
+  getDecompte(){
+    $(document).ready(function () { 
+    let stockerDecompte = sessionStorage.getItem('decompte1');
+    let getMinutSecond = sessionStorage.getItem('timer');
+      if(stockerDecompte){
+          $("#timer").html(getMinutSecond);      
+      }
+    })
+
   }
 
   finReservation(handle) {
@@ -79,12 +86,12 @@ class Chrono2 {
     $('#submit').prop('disabled', true);
     $('input').prop('disabled', false);
     $('#reserver').prop('disabled', false);
-
   }
 
   clicValider(){
     $("#submit").click(function () {
         this.handle = this.start()
+        this.decompte = 1;
     }.bind(this));
   }
 
@@ -96,6 +103,7 @@ class Chrono2 {
 
   initChrono2(){
     this.clicValider();
+    this.getDecompte();
     this.clicRetact();
   }
 }

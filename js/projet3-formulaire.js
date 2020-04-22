@@ -10,6 +10,7 @@ class Formulaire{
       this.valeurInputNom = $('#nom-client');
       this.valeurInputPrenom = $('#prenom-client');
       this.ctx = context;
+      this.visibiliteCompteur = 0;
   }
   //masquer le canvas et le compteur
   blocReservCompteur(){
@@ -32,11 +33,25 @@ class Formulaire{
       this.input.prop('disabled', false);
   }
 
+  visibilite(){
+      $(document).ready(function () {            
+          var getVisibilite = sessionStorage.getItem("visibiliteCompteur");
+
+          if(getVisibilite){  
+            $("#ConteneurCompteur").css("display", "block");
+          }
+      })
+
+  }
+
   boutonValider(){
       this.ConteneurCompteur.css("display", "block");
       this.reservation.css("display", "none"); //masquer le canvas
       this.reserver.prop('disabled', true);
       this.input.prop('disabled', true);
+
+      this.visibiliteCompteur = 1;
+      sessionStorage.setItem("visibiliteCompteur", this.visibiliteCompteur);
   }
 
   activationBoutonForm(){
@@ -69,6 +84,10 @@ class Formulaire{
           this.empechForm(e);
       }.bind(this));
 
+      $("#retact").click(function () {
+        sessionStorage.removeItem('visibiliteCompteur');
+      }.bind(this))
+
       $('#nom-client').on('input',function(){
           this.activationBoutonForm();
       }.bind(this));
@@ -79,6 +98,7 @@ class Formulaire{
   }
 
   initForm(){
+      this.visibilite();
       this.activationBoutonForm();
       this.blocReservCompteur();
       this.clicBoutonForm();

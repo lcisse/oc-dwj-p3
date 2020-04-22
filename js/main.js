@@ -35,3 +35,5 @@ var mymap = mapgenerator.factory('mapdiv',[47.2162, -1.5492],15);
 
 var ajax = new Ajax();
     ajax.requeteAjax();
+
+
